@@ -8,7 +8,6 @@ const port = process.env.PORT || 9000;
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.enableCors();
-    await app.listen(port);
     const config = new swagger_1.DocumentBuilder()
         .setTitle('Summation Api')
         .setDescription('This endpoint will take two numbers, sum them, and then store and return their summation')
@@ -16,6 +15,7 @@ async function bootstrap() {
         .build();
     const document = swagger_1.SwaggerModule.createDocument(app, config);
     swagger_1.SwaggerModule.setup('/', app, document);
+    await app.listen(port);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map
