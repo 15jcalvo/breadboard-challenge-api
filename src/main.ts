@@ -8,6 +8,7 @@ const port = process.env.PORT || 9000
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors()
+  await app.listen(port);
   const config =  new DocumentBuilder()
   .setTitle('Summation Api')
   .setDescription('This endpoint will take two numbers, sum them, and then store and return their summation')
@@ -18,6 +19,5 @@ async function bootstrap() {
 
   SwaggerModule.setup('/', app, document)
   
-  await app.listen(port);
 }
 bootstrap();
