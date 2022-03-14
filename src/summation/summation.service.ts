@@ -8,7 +8,6 @@ export class SummationService {
 
     executeSum(newSumDto: NewSumDto): Sum {
         const newSum = {a: Number(newSumDto.a), b: Number(newSumDto.b), c: Number(newSumDto.a) + Number(newSumDto.b)}
-        this.sums.push(newSum)
         return newSum
     }
 }
